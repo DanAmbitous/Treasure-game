@@ -389,4 +389,188 @@ $("img").click(function(click) {
     if (distance < 5) {
         alert(`Great job you have found the treasure within ${clicks} tries!`);
     }
+})  
+
+$("#easy").click(function(){
+    $("img").css("width", "100").css("height", "100");
+
+    function randomLocation(size) {
+        return Math.floor(Math.random() * size);
+    }
+    
+    function distanceCalculator(click, treasure) {
+        let distanceX = click.offsetX - treasure.x;
+        let distanceY = click.offsetY - treasure.y;
+    
+        return Math.sqrt((distanceX * distanceX) + (distanceY * distanceY))
+    }
+    
+    function distanceHint(distance) {
+        if (distance < 10) {
+            return "Super hot!";
+        } else if (distance < 25) {
+            return "Very hot";
+        } else if (distance < 50) {
+            return "hot";
+        } else if (distance < 75) {
+            return "warm";
+        } else if (distance < 100) {
+            return "lukewarm";
+        } else if (distance < 125) {
+            return "cool"
+        } else if (distance < 150) {
+            return "cold"
+        } else if (distance < 175) {
+            return "Very cold"
+        } else {
+            return "Antarctica cold!"
+        }
+    }
+    
+    let width = 100;
+    let height = 100;
+    let clicks = 0;
+    
+    let treasure = {
+        x: randomLocation(width),
+        y: randomLocation(height)
+    }
+    
+    $("img").click(function(click) {
+        clicks++;
+    
+        var distance = distanceCalculator(click, treasure);
+    
+        var distanceInformation = distanceHint(distance);
+    
+        $("h1").text(distanceInformation);
+    
+        if (distance < 5) {
+            alert(`Great job you have found the treasure within ${clicks} tries!`);
+        }
+    })    
+
+    console.log(treasure.x, treasure.y);
+})
+
+$("#medium").click(function(){
+    $("img").css("width", "300").css("height", "300");
+
+    function randomLocation(size) {
+        return Math.floor(Math.random() * size);
+    }
+    
+    function distanceCalculator(click, treasure) {
+        let distanceX = click.offsetX - treasure.x;
+        let distanceY = click.offsetY - treasure.y;
+    
+        return Math.sqrt((distanceX * distanceX) + (distanceY * distanceY))
+    }
+    
+    function distanceHint(distance) {
+        if (distance < 10) {
+            return "Super hot!";
+        } else if (distance < 25) {
+            return "Very hot";
+        } else if (distance < 50) {
+            return "hot";
+        } else if (distance < 75) {
+            return "warm";
+        } else if (distance < 100) {
+            return "lukewarm";
+        } else if (distance < 125) {
+            return "cool"
+        } else if (distance < 150) {
+            return "cold"
+        } else if (distance < 175) {
+            return "Very cold"
+        } else {
+            return "Antarctica cold!"
+        }
+    }
+    
+    let width = 300;
+    let height = 300;
+    let clicks = 0;
+    
+    let treasure = {
+        x: randomLocation(width),
+        y: randomLocation(height)
+    }
+    
+    $("img").click(function(click) {
+        clicks++;
+    
+        var distance = distanceCalculator(click, treasure);
+    
+        var distanceInformation = distanceHint(distance);
+    
+        $("h1").text(distanceInformation);
+    
+        if (distance < 5) {
+            alert(`Great job you have found the treasure within ${clicks} tries!`);
+        }
+    })    
+
+  
+})
+
+$("#hard").click(function(){
+    $("img").css("width", "500").css("height", "500");
+
+    function randomLocation(size) {
+        return Math.floor(Math.random() * size);
+    }
+    
+    function distanceCalculator(click, treasure) {
+        let distanceX = click.offsetX - treasure.x;
+        let distanceY = click.offsetY - treasure.y;
+    
+        return Math.sqrt((distanceX * distanceX) + (distanceY * distanceY))
+    }
+    
+    function distanceHint(distance) {
+        if (distance < 10) {
+            return "Super hot!";
+        } else if (distance < 25) {
+            return "Very hot";
+        } else if (distance < 50) {
+            return "hot";
+        } else if (distance < 75) {
+            return "warm";
+        } else if (distance < 100) {
+            return "lukewarm";
+        } else if (distance < 125) {
+            return "cool"
+        } else if (distance < 150) {
+            return "cold"
+        } else if (distance < 175) {
+            return "Very cold"
+        } else {
+            return "Antarctica cold!"
+        }
+    }
+    
+    let width = 500;
+    let height = 500;
+    let clicks = 0;
+    
+    let treasure = {
+        x: randomLocation(width),
+        y: randomLocation(height)
+    }
+    
+    $("img").click(function(click) {
+        clicks++;
+    
+        var distance = distanceCalculator(click, treasure);
+    
+        var distanceInformation = distanceHint(distance);
+    
+        $("h1").text(distanceInformation);
+    
+        if (distance < 5) {
+            alert(`Great job you have found the treasure within ${clicks} tries!`);
+        }
+    })   
 })
