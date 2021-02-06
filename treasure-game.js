@@ -371,20 +371,32 @@ function distanceHint(distance) {
 let width = 300;
 let height = 300;
 let clicks = 0;
+let clickCounter = 20;
 
 let treasure = {
     x: randomLocation(width),
     y: randomLocation(height)
 }
 
+if (clickCounter === 0) {
+    alert("Game over");
+}
+
 $("img").click(function(click) {
     clicks++;
+    clickCounter--;
+
+    if (clickCounter === 0) {
+        alert("Game over");
+    }
 
     var distance = distanceCalculator(click, treasure);
 
     var distanceInformation = distanceHint(distance);
 
     $("h1").text(distanceInformation);
+
+    $("p").text(`${clickCounter} Tries left`);
 
     if (distance < 5) {
         alert(`Great job you have found the treasure within ${clicks} tries!`);
